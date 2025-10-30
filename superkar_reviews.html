@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>smart review — Superkar Badhu Catering Reviews</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #fff);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .title {
+      font-size: 42px;
+      font-weight: 700;
+      color: #d32f2f;
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .review-box {
+      width: 80%;
+      max-width: 700px;
+      background: #f7f7f7;
+      border-radius: 30px;
+      padding: 24px;
+      font-size: 17px;
+      color: #333;
+      line-height: 1.6;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: left;
+      position: relative;
+    }
+
+    .copy-btn {
+      position: absolute;
+      bottom: -16px;
+      left: 30px;
+      background: #1976d2;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .copy-btn:hover {
+      background: #0d47a1;
+    }
+
+    .google-btn {
+      display: inline-block;
+      margin-top: 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      padding: 12px 18px;
+      background: linear-gradient(90deg, #4285F4, #34A853, #FBBC05, #EA4335);
+      background-size: 300% 300%;
+      animation: colorShift 6s infinite alternate;
+    }
+
+    @keyframes colorShift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .star-section {
+      margin-top: 10px;
+      text-align: center;
+      color: #000;
+    }
+
+    .star-section small {
+      display: block;
+      font-size: 10px;
+      margin-bottom: 2px;
+    }
+
+    .stars {
+      font-size: 22px;
+      letter-spacing: 3px;
+    }
+
+    .thanks {
+      margin-top: 40px;
+      font-size: 22px;
+      font-family: 'Brush Script MT', cursive;
+      color: #111;
+      text-align: center;
+    }
+
+    .policy {
+      font-size: 12px;
+      color: #777;
+      text-align: center;
+      margin-top: 20px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">Superkar Badhu Catering</div>
+  <div class="subtitle">To give review copy the text</div>
+
+  <div class="review-box" id="reviewBox">
+    <p id="reviewText"></p>
+    <button class="copy-btn" id="copyBtn">Copy Text</button>
+  </div>
+
+  <a href="#" target="_blank" rel="noopener" class="google-btn">Google Reviews</a>
+
+  <div class="star-section">
+    <small>like only give</small>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <small>May your day not be good but great!</small>
+  </div>
+
+  <div class="thanks">Thanks for supporting us!</div>
+
+  <div class="policy">
+    <p>All reviews are voluntary and for feedback purposes only.</p>
+    <p>By using this page, you agree that reviews reflect personal experience only.</p>
+  </div>
+
+  <script>
+    const reviews = ["Superkar Badhu Catering handled our wedding with perfection. The food was flavorful and freshly prepared. Their respectful behavior toward elders truly touched our hearts.",
+"We booked Superkar Badhu Catering for a birthday party, and everything was flawless. Delicious food, clean setup, and warm service. Elder guests felt valued and comfortable.",
+"The anniversary dinner catered by Superkar Badhu Catering was exceptional. Fresh ingredients, elegant presentation, and polite staff. We loved the way they cared for our seniors.",
+"Superkar Badhu Catering made our wedding memorable with their amazing food. Every dish was served hot and hygienically. Their respectful attitude toward elders was admirable.",
+"Our daughter’s birthday event was beautifully managed. Superkar Badhu Catering delivered tasty, hygienic food and friendly service. Seniors were treated with patience and love.",
+"Anniversary event was a delight thanks to Superkar Badhu Catering. Pure and delicious food, neat arrangement, and calm staff. Elders appreciated their gentle behavior.",
+"Weddings can be stressful, but Superkar Badhu Catering made everything smooth. The food quality was excellent and hygiene was outstanding. They truly honor elderly guests.",
+"We chose Superkar Badhu Catering for a birthday celebration, and the experience was wonderful. Fresh taste, clean counters, and good service. Elder members felt cared for.",
+"Superb service at our anniversary dinner. Food tasted home-style yet premium. Superkar Badhu Catering staff treated our elders like family.",
+"Superkar Badhu Catering made our wedding feast unforgettable. Neat setup, delicious flavors, and respectful staff. Truly a warm experience."];
+
+    const randomReview = reviews[Math.floor(Math.random() * reviews.length)];
+    document.getElementById("reviewText").innerText = randomReview;
+
+    document.getElementById("copyBtn").addEventListener("click", async function() {
+      try {
+        await navigator.clipboard.writeText(randomReview);
+        this.innerText = "Copied ✓";
+        setTimeout(() => this.innerText = "Copy Text", 2000);
+      } catch (err) {
+        alert("Copy failed — please copy manually.");
+      }
+    });
+  </script>
+</body>
+</html>
